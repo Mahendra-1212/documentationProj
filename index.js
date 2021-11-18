@@ -1,5 +1,6 @@
 const express=require("express");
 const app=express();
+const path=require("path");
 const dateformat=require('date-format');
 const PORT=process.env.PORT||4000;
 
@@ -7,7 +8,8 @@ const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 const { application } = require("express");
 const swaggerDocument = YAML.load('./swagger.yaml');
-
+const public=path.join(__dirname,"gitNote");
+app.use(express.static(public));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument)); 
 app.get("/api/v1/instagram",(req,res)=>{
     console.log(); 
