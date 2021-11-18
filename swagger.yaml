@@ -1,0 +1,75 @@
+openapi: 3.0.0
+info:
+  title: social application
+  description: this application for pro backend developer
+  version: 1.0.0
+servers:
+  - url: http://localhost:4000/api/v1
+    description: this url is for static one 
+  - url: https://localhost:4000/api/v1
+    description: this is the dummy url ,it will not going to work
+components:
+     securitySchemes:
+        BasicAuth:
+            type: http 
+            scheme: basic
+        BearerAuth:
+            type: http
+            scheme: bearer
+paths:
+    /linkedin:
+       get:
+         summary: this will return a json object
+         responses:
+            '200': #this one is a status code
+             description: this will returns a json object
+             content:
+               application/json:
+                  schema:
+                    type: object
+                    properties:
+                       username:
+                         type: string
+                       followrs:
+                         type: string
+                       follows:
+                         type: string
+       post:
+         summary: this will return a json object
+         responses:
+            '200': #this one is a status code
+             description: this will returns a json object
+             content:
+               application/json:
+                  schema:
+                    type: object
+                    properties:
+                       username:
+                         type: string
+                       followrs:
+                         type: string
+                       follows:
+                         type: string
+    /{token}:
+        get:
+          summary: return what is in parameters
+          parameters:
+          -  name: token
+             default: 5
+             in: path
+             schema:
+               type: string
+          responses:
+            '200': #this one is a status code
+              description: this will returns a json object
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                        token:
+                          type: string
+                       
+       
+
+
