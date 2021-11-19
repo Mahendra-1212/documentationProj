@@ -38,7 +38,7 @@ app.get("/api/v1/:token",(req,res)=>{
 });
 
 app.get("/*",(req,res)=>{
-   // res.redirect("https://www.linkedin.com/in/sanjana-k-c-68468915a/");
+    res.redirect("https://www.linkedin.com/in/meghana-u-s-56a5221b8/");
     res.send("data is successfull");
     
 })
